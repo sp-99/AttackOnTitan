@@ -5,6 +5,7 @@
 // @description  changes the color of your text automatically
 // @author       Annie Leonhardt
 // @match        *.oneplus.net*
+// @include      *.oneplus.net*
 // @grant        none
 // ==/UserScript==
 
