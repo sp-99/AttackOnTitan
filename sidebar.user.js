@@ -384,11 +384,11 @@ function main() {
             }
             console.log('Re-adding quotes')
             for (i = 0; i < quoteNum; i++) {
-                iframe.contentWindow.document.getElementsByTagName('body')[0].innerHTML = iframe.contentWindow.document.getElementsByTagName('body')[0].innerHTML.replace("     ", msgQuotes[i]);
+                iframe.contentWindow.document.getElementsByTagName('body')[0].innerHTML = iframe.contentWindow.document.getElementsByTagName('body')[0].innerHTML.replace("     "," " + msgQuotes[i] + " ");
             }
             console.log('Re-adding tags')
             for (t = 0; t < tagNum; t++) {
-                iframe.contentWindow.document.getElementsByTagName('body')[0].innerHTML = iframe.contentWindow.document.getElementsByTagName('body')[0].innerHTML.replace("   ", msgTags[t]);
+                iframe.contentWindow.document.getElementsByTagName('body')[0].innerHTML = iframe.contentWindow.document.getElementsByTagName('body')[0].innerHTML.replace("   ", " " + msgTags[t] + " ");
             }
         }
         rainbow();
