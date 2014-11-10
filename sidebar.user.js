@@ -359,7 +359,7 @@ function main() {
             }
             var message = iframe.contentWindow.document.getElementsByTagName('body')[0].innerHTML
             var regex = /(\[\bQUOTE\b(.*?)\](.*?)\[\/\bQUOTE\b\])/gi
-            var tagRegex = /@(\bBrettPlusOne|Martin|Kevin|DRCH|PLPeeters|Jevoly|finaldentiny|wtfhsf|Adam Krisko|nguser\b)/gi
+            var tagRegex = /@(\bBrettPlusOne|Martin|Kevin|DRCH|PLPeeters|Jevoly|finaldentiny|wtfhsf|Adam Krisko|nguser\b)?(.*)[A-Aa-z0-9]/gi
             var msgQuotes = message.match(regex);
             var msgTags = message.match(tagRegex);
             var newMsg = message.replace(regex, "     ");
