@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Custom Sidebar
 // @namespace    *.oneplus.net*
-// @version      1.5.4
+// @version      1.5.5
 // @description  A custom sidebar for the Oneplus forums with many custom scripts and tools.
 // @author       Annie Leonhardt AKA Kallen AKA Mikasa Ackerman, Kevin Pei AKA kp1234, Sam Prescott AKA sp99
 // @include      *forums.oneplus.net*
