@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Custom Sidebar
 // @namespace    *.oneplus.net*
-// @version      1.5.2
+// @version      1.5.3
 // @description  A custom sidebar for the Oneplus forums with many custom scripts and tools.
 // @author       Annie Leonhardt AKA Kallen AKA Mikasa Ackerman, Kevin Pei AKA kp1234, Sam Prescott AKA sp99
 // @include      *forums.oneplus.net*
@@ -359,7 +359,7 @@ function main() {
             }
             var message = iframe.contentWindow.document.getElementsByTagName('body')[0].innerHTML
             var regex = /(\[\bQUOTE\b(.*?)\](.*?)\[\/\bQUOTE\b\])/gi
-            var tagRegex = /@(\bBrettPlusOne|Martin|Kevin|DRCH|PLPeeters|Jevoly|finaldentiny|wtfhsf|Adam Krisko|nguser|\b)[A-Za-z0-9]+/gi
+            var tagRegex = /@(\bBrettPlusOne|drmartin|kp1234|DRCH|PLPeeters|Jevoly|finaldentiny|wtfhsf|Adam Krisko|nguser|\b)[A-Za-z0-9]+/gi
             var msgQuotes = message.match(regex);
             var msgTags = message.match(tagRegex);
             var newMsg = message.replace(regex, "     ");
