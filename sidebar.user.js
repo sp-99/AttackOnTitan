@@ -1,14 +1,13 @@
 // ==UserScript==
 // @name         Custom Sidebar
 // @namespace    *.oneplus.net*
-// @version      1.6.0
+// @version      1.6.1
 // @description  A custom sidebar for the Oneplus forums with many custom scripts and tools.
 // @author       Annie Leonhardt AKA Kallen AKA Mikasa. AKA Akane, Kevin Pei AKA kp1234, Sam Prescott AKA sp99
 // @include      *forums.oneplus.net*
 // @grant        none
 // @license      MIT License; http://opensource.org/licenses/MIT
 // ==/UserScript==
-
 function addJQuery(callback) {
     $('<style type="text/css"></style').text('.xenOverlay .xenForm.animateClose{-webkit-transition:300ms cubic-bezier(0.215,.61,.355,1);transition:300ms cubic-bezier(0.215,.61,.355,1);opacity:0;-webkit-transform: scale(0.9,0.9);transform: scale(0.9,0.9);}.xenOverlay .xenForm.animateClose.open{opacity:1;-webkit-transform: scale(1,1);transform: scale(1,1);}.xenOverlay .xenForm{border-radius:3px;box-shadow:0px 0px 600px #000;border-style:none;background:#151515 !important;}.xenOverlay .formOverlay .heading {color: #FFF;background: transparent;padding-left: 0px;border-style:none;}.sidebar{position:absolute;right:0px;}.sidebar.fixed{position:fixed;top:80px;box-sizing:border-box;}.custom-inner li{padding-top:16px;}.custom-inner li:first-child{padding-top: 0px;}.sidebar .section h3{padding:0px;padding-bottom:0px !important;cursor:pointer; color:#000 !important;}.sidebar .section h3 a{color:#000 !important;}#create-thread-button .inner{margin-bottom:30px;}.sidebar .section h3 a:hover{text-decoration:none;}#widget-11 .widget_header_small:hover{text-decoration:underline;}#create-thread-button .inner{margin-bottom:30px;}.sidebar .section .widget{padding:8px 0px 14px 0px;}.sidebar .section .section-wrapper{display:none;padding:10px 0px;}').appendTo('head');
     var script = document.createElement("script");
@@ -129,7 +128,7 @@ function main() {
 
             var links = /(\bhttp|https\:\/\/?|www\b)[A-Za-z0-9\-_\/.:?=]+/igm;
 
-            var quotes = /(\[\bQUOTE\b(.*?)\](.*?)\[\/\bQUOTE\b\])/igm;
+            var quotes = /(\[[^\/](.*?)\])((.|\n)*?)(\[[\/](.*?)\])/igm;
 
             var smilies = /(\;\)|\:D|\:\(|8\-\)|\:\)|(\:\/)(?![\/])|\:P)/igm;
 
@@ -201,11 +200,13 @@ function main() {
 
             if (phase == undefined)
 
-                phase = 0;
+                phase = 140;
 
             center = 128;
 
             width = 127;
+
+            len = str.length;
 
             frequency = Math.PI * 2 / str.length;
 
@@ -346,7 +347,7 @@ function main() {
 
         var text = $('iframe.redactor_textCtrl.redactor_MessageEditor.redactor_BbCodeWysiwygEditor').contents().find('body').html()
 
-        colorText(text, 0);
+        colorText(text, 4);
     }
 
     function closeThread(batch) {
