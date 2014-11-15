@@ -132,7 +132,7 @@ function main() {
 
             var smilies = /(\;\)|\:D|\:\(|8\-\)|\:\)|(\:\/)(?![\/])|\:P)/igm;
 
-            var tags = /@(\bBrettPlusOne|drmartin|kp1234|DRCH|PLPeeters|Jevoly|finaldentiny|wtfhsf|Adam Krisko|nguser|\b)[A-Za-z0-9\-_\/.:]+/igm;
+            var tags = /@(\bBrettPlusOne|drmartin|kp1234|DRCH|PLPeeters|Jevoly|finaldentiny|wtfhsf|Adam Krisko|nguser|\b)[A-Za-z0-9\-_\/.:ÁÉÍÓÚáéíóuñÑ]+/igm;
 
             var mlinks = str.match(links);
 
