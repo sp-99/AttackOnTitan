@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Custom Sidebar
 // @namespace    *.oneplus.net*
-// @version      1.6.2
+// @version      1.6.3
 // @description  A custom sidebar for the Oneplus forums with many custom scripts and tools.
 // @author       Annie Leonhardt AKA Kallen AKA Mikasa. AKA Akane, Kevin Pei AKA kp1234, Sam Prescott AKA sp99
 // @include      *forums.oneplus.net*
@@ -128,7 +128,7 @@ function main() {
 
             var links = /(\bhttp|https\:\/\/?|www\b)[A-Za-z0-9\-_\/.:?=]+/igm;
 
-            var quotes = /(\[[^\/](.*?)\])((.|\n)*?)(\[[\/](.*?)\])/igm;
+            var quotes = /(\[[^\/](.*?)\])((.|\n)*?)(\[[\/][^\buser\b](.*?)\])/igm;
 
             var smilies = /(\;\)|\:D|\:\(|8\-\)|\:\)|(\:\/)(?![\/])|\:P)/igm;
 
