@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Check inbox for invites
 // @namespace    *.oneplus.net*
-// @version      1.1
+// @version      1.2
 // @description  Checks your inbox for invites.
 // @author       Annie Leonhart
 // @include      *forums.oneplus.net*
@@ -9,51 +9,51 @@
 // @license      MIT License; http://opensource.org/licenses/MIT
 // ==/UserScript==
 
-function sidebar(title, opts) {
-    var options = {
-        layout: 'oneColumn'
-    };
-    $.extend(options, opts);
-    this.wrapper = $('<div class="section widget-group-no-name widget-container"></div>');
-    this.wrapper.append('<div class="secondaryContent widget" id="widget-12"><h3 style="padding-bottom:0px;">' + title + '</h3><ul class="custom-inner ' + (options.layout == 'twoColumns' ? 'xenforo-list-2cols' : '') + '"></ul><div class="clearfix" style="clear:left"></div></div>');
-    this.content = this.wrapper.find('.custom-inner');
-    this.add = function(elem, callback) {
-        this.content.append(elem);
-        elem.wrap('<li></li>');
-        if (typeof callback != "undefined") {
-            callback(elem);
-        }
-    }
-    $('.sidebar .section:first').after(this.wrapper);
+//Check inbox for INvites
+if ($('a.callToAction').length > 0) {
+    var checkInboxBtn = $('&nbsp;<button class="button" id="checkinvites" style="height:28px;">Check Inbox For Invites</button>');
+    $('a.callToAction').after(checkInboxBtn);
+    $('button#checkinvites.button').click( function(){
+    	getInboxInvites();
+    });
 }
-
-var miscTools = new sidebar("Misc. Tools");
-
-miscTools.add($('<br><a href="javascript:void(0);">Check Inbox 4 Invites</a>'), function(elem) {
-    elem.click(function() {
-        getInboxInvites();
-    });
-});
-
-function modal(title, content, btns) {
-var overlayObj = $('<div style="position: fixed;margin: auto;top: 0;left: 0;width: 100%;height: 100%;z-index: 209998;opacity: 0.9;filter: alpha(opacity=90);background-color: rgb(255,255,255);"></div>');
-var modalObj = $('<div class="xenOverlay" style="display: block;position: fixed;left: 50%;width: 600px;z-index:209999;margin-left: -300px;top: 50%;height: auto;"><form class="formOverlay xenForm animateClose"><div class="heading" id="redactor_modal_header">' + title + '</div><div id="redactor_modal_inner"><dl class="ctrlUnit"><div class="modal-inner-content"></div></dl><dl class="ctrlUnit submitUnit modal-btn-wrapper"></dl></div></form></div>');
-modalObj.find('.modal-inner-content').append(content);
-var modalMethods = {
-close: function() {
-    modalObj.find('.xenForm').removeClass('open').delay(300).hide(1, function() {
-        modalObj.remove();
-    });
-    overlayObj.fadeOut(300, function() {
-        overlayObj.remove();
-    });
-},
-add: function(data) {
-    modalObj.find('.modal-inner-content').append(data);
-}
-};
 
 function getInboxInvites() {
+	function modal(title, content, btns) {
+	    var overlayObj = $('<div style="position: fixed;margin: auto;top: 0;left: 0;width: 100%;height: 100%;z-index: 209998;opacity: 0.9;filter: alpha(opacity=90);background-color: rgb(255,255,255);"></div>');
+	    var modalObj = $('<div class="xenOverlay" style="display: block;position: fixed;left: 50%;width: 600px;z-index:209999;margin-left: -300px;top: 50%;height: auto;"><form class="formOverlay xenForm animateClose"><div class="heading" id="redactor_modal_header">' + title + '</div><div id="redactor_modal_inner"><dl class="ctrlUnit"><div class="modal-inner-content"></div></dl><dl class="ctrlUnit submitUnit modal-btn-wrapper"></dl></div></form></div>');
+	    modalObj.find('.modal-inner-content').append(content);
+	    var modalMethods = {
+	        close: function() {
+	            modalObj.find('.xenForm').removeClass('open').delay(300).hide(1, function() {
+	                modalObj.remove();
+	            });
+	            overlayObj.fadeOut(300, function() {
+	                overlayObj.remove();
+	            });
+	        },
+	        add: function(data) {
+	            modalObj.find('.modal-inner-content').append(data);
+	        }
+	    };
+	    this.methods = modalMethods;
+	    $.each(btns, function(index, value) {
+	        var btn = $('<button class="redactor_modal_btn button" style="margin-right:5px;">' + index + '</button>');
+	        if (value.type == "red") {
+	            btn.addClass('primary');
+	        }
+	        modalObj.find('.modal-btn-wrapper').append(btn);
+	        btn.click(function(e) {
+	            e.preventDefault();
+	            btns[index].click.call(modalMethods);
+	        });
+	    });
+	    modalObj.appendTo('body');
+	    modalObj.css('margin-top', -modalObj.outerHeight() / 2);
+	    overlayObj.hide().appendTo('body').fadeIn(300);
+	    modalObj.find('.xenForm').addClass('open');
+	}
+
 	var links = [];
 	var invites = [];
 	try {
