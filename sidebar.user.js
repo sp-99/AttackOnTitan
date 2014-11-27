@@ -95,40 +95,6 @@ function main() {
 
 
     function getInboxInvites() {
-	function modal(title, content, btns) {
-	    var overlayObj = $('<div style="position: fixed;margin: auto;top: 0;left: 0;width: 100%;height: 100%;z-index: 209998;opacity: 0.9;filter: alpha(opacity=90);background-color: rgb(255,255,255);"></div>');
-	    var modalObj = $('<div class="xenOverlay" style="display: block;position: fixed;left: 50%;width: 600px;z-index:209999;margin-left: -300px;top: 50%;height: auto;"><form class="formOverlay xenForm animateClose"><div class="heading" id="redactor_modal_header">' + title + '</div><div id="redactor_modal_inner"><dl class="ctrlUnit"><div class="modal-inner-content"></div></dl><dl class="ctrlUnit submitUnit modal-btn-wrapper"></dl></div></form></div>');
-	    modalObj.find('.modal-inner-content').append(content);
-	    var modalMethods = {
-	        close: function() {
-	            modalObj.find('.xenForm').removeClass('open').delay(300).hide(1, function() {
-	                modalObj.remove();
-	            });
-	            overlayObj.fadeOut(300, function() {
-	                overlayObj.remove();
-	            });
-	        },
-	        add: function(data) {
-	            modalObj.find('.modal-inner-content').append(data);
-	        }
-	    };
-	    this.methods = modalMethods;
-	    $.each(btns, function(index, value) {
-	        var btn = $('<button class="redactor_modal_btn button" style="margin-right:5px;">' + index + '</button>');
-	        if (value.type == "red") {
-	            btn.addClass('primary');
-	        }
-	        modalObj.find('.modal-btn-wrapper').append(btn);
-	        btn.click(function(e) {
-	            e.preventDefault();
-	            btns[index].click.call(modalMethods);
-	        });
-	    });
-	    modalObj.appendTo('body');
-	    modalObj.css('margin-top', -modalObj.outerHeight() / 2);
-	    overlayObj.hide().appendTo('body').fadeIn(300);
-	    modalObj.find('.xenForm').addClass('open');
-	}
 
 	var links = [];
 	var invites = [];
