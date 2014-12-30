@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Better Emoji for Oneplus
 // @namespace    http://github.com/annieleonhardt
-// @version      1.0
+// @version      1.5
 // @description  Allows you to use different emoji icons on Oneplus forums
 // @author       Annie Leonhardt
 // @match        *.oneplus.net
@@ -32,7 +32,7 @@ function EmojiIcons(){
     new Emoji("http://i.imgur.com/Pf3Hb6O.gif", "emoji");
     new Emoji("http://i.imgur.com/bio1pvI.gif", "emoji");
     new Emoji("http://i.imgur.com/Ltd5iU6.png", "emoji");
-    /******** Might add more in the future, I'm lazy ---
+    /*** Might add more XATs in the future, I'm lazy ***/
     
     // Other -------------------------------------------
     new Emoji("http://i.imgur.com/T4IgzTY.gif", "emoji");
