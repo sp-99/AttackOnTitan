@@ -1,11 +1,11 @@
 // ==UserScript==
 // @name         Better Emoji for Oneplus
 // @namespace    http://github.com/annieleonhardt
-// @version      1.5
+// @version      1.6
 // @description  Allows you to use different emoji icons on Oneplus forums
 // @author       Annie Leonhardt
-// @match        *.oneplus.net
-// @include      *.oneplus.net
+// @match        *.oneplus.net*
+// @include      *.oneplus.net*
 // @grant        none
 // ==/UserScript==
 
