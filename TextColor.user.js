@@ -11,7 +11,7 @@
 
 //colorizes the text for your replies
 function colorize() {
-  var rn = Math.floor((Math.random() * 2) + 1);
+  var rn = Math.floor((Math.random() * 3) + 1);
   if(rn == 1){
       if (document.getElementsByClassName('redactor_textCtrl redactor_MessageEditor redactor_BbCodeWysiwygEditor redactor_NoAutoComplete') [0]) {
           $('iframe.redactor_textCtrl.redactor_MessageEditor.redactor_BbCodeWysiwygEditor.redactor_NoAutoComplete').contents().find('p').css({'color': '#1122c6', 'font-size': 'medium', 'font-weight': 'bold'})
