@@ -11,32 +11,27 @@
 
 //colorizes the text for your replies
 function colorize() {
-  var rn = Math.floor((Math.random() * 3) + 1);
-  if(rn == 1){
-      if (document.getElementsByClassName('redactor_textCtrl redactor_MessageEditor redactor_BbCodeWysiwygEditor redactor_NoAutoComplete') [0]) {
-          $('iframe.redactor_textCtrl.redactor_MessageEditor.redactor_BbCodeWysiwygEditor.redactor_NoAutoComplete').contents().find('p').css({'color': '#1122c6', 'font-size': 'medium', 'font-weight': 'bold'})
-      } else if (document.getElementsByClassName('redactor_textCtrl redactor_MessageEditor redactor_BbCodeWysiwygEditor redactor_') [0]) {
-          $('iframe.redactor_textCtrl.redactor_MessageEditor.redactor_BbCodeWysiwygEditor.redactor_').contents().find('p').css({'color': '#1122c6', 'font-size': 'medium', 'font-weight': 'bold'})
-      }
- }
- else if(rn == 2){
-     if (document.getElementsByClassName('redactor_textCtrl redactor_MessageEditor redactor_BbCodeWysiwygEditor redactor_NoAutoComplete') [0]) {
-          $('iframe.redactor_textCtrl.redactor_MessageEditor.redactor_BbCodeWysiwygEditor.redactor_NoAutoComplete').contents().find('p').css({'color': '#c62211', 'font-size': 'medium', 'font-weight': 'bold'})
-      } else if (document.getElementsByClassName('redactor_textCtrl redactor_MessageEditor redactor_BbCodeWysiwygEditor redactor_') [0]) {
-          $('iframe.redactor_textCtrl.redactor_MessageEditor.redactor_BbCodeWysiwygEditor.redactor_').contents().find('p').css({'color': '#c62211', 'font-size': 'medium', 'font-weight': 'bold'})
-      }
- } 
- else if(rn == 3){
-     if (document.getElementsByClassName('redactor_textCtrl redactor_MessageEditor redactor_BbCodeWysiwygEditor redactor_NoAutoComplete') [0]) {
-          $('iframe.redactor_textCtrl.redactor_MessageEditor.redactor_BbCodeWysiwygEditor.redactor_NoAutoComplete').contents().find('p').css({'color': '#119122', 'font-size': 'medium', 'font-weight': 'bold'})
-      } else if (document.getElementsByClassName('redactor_textCtrl redactor_MessageEditor redactor_BbCodeWysiwygEditor redactor_') [0]) {
-          $('iframe.redactor_textCtrl.redactor_MessageEditor.redactor_BbCodeWysiwygEditor.redactor_').contents().find('p').css({'color': '#119122', 'font-size': 'medium', 'font-weight': 'bold'})
-      }
-    }
+	var rn = Math.floor((Math.random() * 3) + 1);
+	var color;
+	switch (rn) {
+	case 1:
+		color = '#1122c6';
+		break;
+	case 2:
+		color = '#c62211';
+		break;
+	case 3:
+		color = '#119122';
+		break;
+	}
+	if ($("iframe.redactor_textCtrl").length) {
+		$("iframe.redactor_textCtrl").contents().find('p').css({
+			'color' : color,
+			'font-size' : 'medium',
+			'font-weight' : 'bold'
+		})
+	}
 }
-
-
 window.addEventListener('submit', colorize, true);
 HTMLFormElement.prototype._submit = HTMLFormElement.prototype.submit;
 HTMLFormElement.prototype.submit = colorize;
-
