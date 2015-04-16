@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Text Colour
 // @namespace    https://github.com/annieleonhardt/AttackOnTitan
-// @version      V1.03
+// @version      2.0.0
 // @description  changes the color of your text automatically
 // @author       Annie Leonhardt
 // @match        *.oneplus.net*
