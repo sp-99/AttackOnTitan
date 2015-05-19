@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Text Colour
 // @namespace    https://github.com/annieleonhardt/AttackOnTitan
-// @version      2.0.0
+// @version      2.0.1
 // @description  changes the color of your text automatically
 // @author       Annie Leonhardt
 // @match        *.oneplus.net*
@@ -21,7 +21,7 @@ function colorize() {
 		color = '#c62211';
 		break;
 	case 3:
-		color = '#119122';
+		color = '#36E041';
 		break;
 	}
 	if ($("iframe.redactor_textCtrl").length) {
